@@ -6,28 +6,28 @@ from operator import itemgetter
 from datetime import date,datetime
 
 # making the lists to implement the csv data
-mfl = []
-prl = []
 sdl = []
+prl = []
+mfl = []
 
 # including data from each csv file
-with open("ManufacturerList.csv") as manlist:
-    ml = csv.reader(manlist)
-    for line in ml:
-        mfl.append(line)
-with open("PriceList.csv") as pricelist:
-    pl = csv.reader(pricelist)
-    for line in pl:
-        prl.append(line)
 with open("ServiceDatesList.csv") as sdlist:
     sl = csv.reader(sdlist)
     for line in sl:
         sdl.append(line)
+with open("PriceList.csv") as pricelist:
+    pl = csv.reader(pricelist)
+    for line in pl:
+        prl.append(line)
+with open("ManufacturerList.csv") as manlist:
+    ml = csv.reader(manlist)
+    for line in ml:
+        mfl.append(line)
 
 # making the lists to go by order ID
-new_mfl = (sorted(mfl, key=itemgetter(0)))
-new_prl = (sorted(prl, key=itemgetter(0)))
 new_sdl = (sorted(sdl, key=itemgetter(0)))
+new_prl = (sorted(prl, key=itemgetter(0)))
+new_mfl = (sorted(mfl, key=itemgetter(0)))
 
 # service dates and missing prices are now added to the (main) list
 for x in range(0, len(new_mfl)):
